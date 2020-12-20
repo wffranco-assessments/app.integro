@@ -1,0 +1,38 @@
+.App {
+  min-height: 100vh;
+}
+
+.card {
+  &.card-sm {
+    max-width: 400px;
+  }
+  &.card-md {
+    max-width: 500px;
+  }
+  &.card-row {
+    margin: auto;
+  }
+}
+
+svg.bi {
+  height: 1em;
+  fill: currentColor;
+
+  &.bi-react {
+    transform: translateY(-0.2em);
+  }
+
+  .btn-sm & {
+    transform: translateY(-0.1em);
+  }
+}
+
+.alert:last-child {
+  margin-bottom: 0;
+}
+
+.btn-group-gutter {
+  .btn + .btn {
+    margin-left: .5em;
+  }
+}
