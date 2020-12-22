@@ -1,14 +1,14 @@
 // import { useDispatch, useSelector } from 'react-redux';
 import { Link, useDispatch, useHistory, useSelector } from '../../router';
-import { logout as Logout } from '../../store/reducers/user';
+import { logout } from '../../store/reducers/user';
 
 export default function Menu() {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector(store => store.user);
 
-  const logout = () => {
-    dispatch(Logout());
+  const exit = () => {
+    dispatch(logout);
     history.push('/');
   };
 
@@ -40,7 +40,7 @@ export default function Menu() {
             { user.nickname || 'Usuario' }
           </a>
           <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <span className="dropdown-item" onClick={logout}>Salir</span>
+            <span className="dropdown-item" onClick={exit}>Salir</span>
           </div>
         </li>
       </ul>
