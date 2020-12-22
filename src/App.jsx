@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Router } from './router';
+import { getAuthUser } from './store/reducers/user';
+
+import Header from './components/Header';
+import Views from './views';
+
 import './App.scss';
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => dispatch(getAuthUser), []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App d-flex flex-column">
+        <Header />
+        <Views />
+      </div>
+    </Router>
   );
 }
